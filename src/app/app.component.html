@@ -6,9 +6,15 @@
             </button>
             <span>Ng Booking</span>
             <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            
+            <button (click)="onLogout()" *ngIf="isLoggedIn" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
                 <mat-icon>input</mat-icon>
             </button>
+            <button (click)="onLogin()" *ngIf="!isLoggedIn" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+
+
         </mat-toolbar>
     </div>
     <router-outlet></router-outlet>

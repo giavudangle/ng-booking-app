@@ -11,7 +11,6 @@ export class AuthenticationService {
     private userSubject : BehaviorSubject<IUser | any>;
     public userOservable! : Observable<IUser>;
 
-
     constructor(private readonly http : HttpClient){
         const userInLocalStorage = JSON.parse(localStorage.getItem(APP_CONFIG.LOCAL_STORAGE_USER) as any)
         this.userSubject = new BehaviorSubject<IUser>(userInLocalStorage)
@@ -29,7 +28,6 @@ export class AuthenticationService {
             password
         })
     }
-
 
     login(email : string, password : string){
         return this.http.post<IUser>(`${API_ENDPOINT}${API_ROUTING.AUTHENTICATION}/login`,{email,password})
