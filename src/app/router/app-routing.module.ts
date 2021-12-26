@@ -4,13 +4,15 @@ import { AppComponent } from "../app.component";
 import { HomeComponent } from "../pages/home/home.component";
 import { LoginComponent } from "../pages/login/login.component";
 import { RegisterComponent } from "../pages/register/register.component";
-import { ROUTING_PATH } from "./app-routing.enum";
+import { ROUTING_PATH } from "../shared/enums/app-routing.enum";
+import { AuthGuard } from "../shared/guards/auth.guard";
 
 
 const routes : Routes = [
     {
         path:ROUTING_PATH.HOME,
-        component:HomeComponent
+        component:HomeComponent,
+        canActivate:[AuthGuard]
     },
     {
         path:ROUTING_PATH.LOGIN,
@@ -21,8 +23,8 @@ const routes : Routes = [
         component:RegisterComponent
     },
     {
-        path:ROUTING_PATH.EXPLICIT,
-        component:HomeComponent
+        path:'**',
+        redirectTo:''
     }
 ];
 
