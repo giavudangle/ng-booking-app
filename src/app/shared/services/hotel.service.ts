@@ -13,4 +13,8 @@ export class HotelService {
     getAllHotels() : Observable<IHotel[]>{
         return this.http.get<IHotel[]>(`${API_ENDPOINT}${API_ROUTING.HOTEL}`)
     }
+
+    getHotelById(id : number) :Observable<IHotel>{
+        return this.http.get<IHotel>(`${API_ENDPOINT}${API_ROUTING.HOTEL}/${id}`)
+    }
 }

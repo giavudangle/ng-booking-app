@@ -30,7 +30,7 @@ export class AuthenticationService {
     }
 
     login(email : string, password : string){
-        return this.http.post<IUser>(`${API_ENDPOINT}${API_ROUTING.AUTHENTICATION}/login`,{email,password})
+        return this.http.post<IUser>(`${API_ENDPOINT}${API_ROUTING.AUTHENTICATION}/login`,{email,password},httpOptions)
         .pipe(map(user => {
             localStorage.setItem(APP_CONFIG.LOCAL_STORAGE_USER,JSON.stringify(user))
             this.userSubject!.next(user)
@@ -39,7 +39,7 @@ export class AuthenticationService {
     }
 
     logout(){
-        return this.http.post<IUser>(`${API_ENDPOINT}${API_ROUTING.AUTHENTICATION}/login`,{}) 
+        return this.http.post<IUser>(`${API_ENDPOINT}${API_ROUTING.AUTHENTICATION}/logout`,{},httpOptions) 
         .pipe(map(_ => {
             localStorage.removeItem(APP_CONFIG.LOCAL_STORAGE_USER)
             this.userSubject!.next(null)
