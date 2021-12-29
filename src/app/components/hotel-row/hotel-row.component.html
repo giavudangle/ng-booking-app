@@ -1,0 +1,7 @@
+<div (click)="onToggleItem(hotel)" class="hotel__row-container">
+    <img class="hotel__row-image" mat-card-image src="http://localhost:3000/public/assets/images/BIM_3871-Edit-990x590-2012.jpeg">
+    <div class="hotel__row-content">
+        <mat-card-content>{{hotel.hotelName}}</mat-card-content>
+        <mat-card-content>{{hotel.rooms.length}} rooms</mat-card-content>
+    </div>
+</div>

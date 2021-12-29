@@ -1,0 +1,14 @@
+.hotel__row-container {
+    margin: 20px;
+    cursor: pointer;
+}
+
+.hotel__row-image {
+    width: 150px;
+    height: 150px;
+}
+
+.hotel__row-content{
+    margin: -10px;
+    padding: -10px;
+}
