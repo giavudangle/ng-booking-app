@@ -9,10 +9,10 @@ import { AppRoutingModule } from './router/app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatPaginatorModule } from '@angular/material/paginator'
-
-
 import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort"
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,15 +25,22 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 import { HotelService } from './shared/services/hotel.service';
+import { HotelComponent } from './pages/hotel/hotel.component';
+import { HotelRowComponent } from './components/hotel-row/hotel-row.component';
+import { HotelDetailComponent } from './components/hotel-detail/hotel-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HotelComponent,
+    HotelRowComponent,
+    HotelDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,8 @@ import { HotelService } from './shared/services/hotel.service';
     MatOptionModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
 
   ],
   providers: [

@@ -1,12 +1,11 @@
 <div class="root">
     <div class="header">
         <mat-toolbar color="primary">
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <button routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                 <mat-icon>home</mat-icon>
             </button>
-            <span>Ng Booking</span>
-            <span class="example-spacer"></span>
-            
+            <a routerLink="/hotel"><span style="margin:20px">Hotel</span></a>
+            <span class="example-spacer"></span>         
             <button (click)="onLogout()" *ngIf="isLoggedIn" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
                 <mat-icon>input</mat-icon>
             </button>

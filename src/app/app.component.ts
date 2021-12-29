@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { ROUTING_PATH } from './shared/enums/app-routing.enum';
+import { APP_CONFIG } from './shared/enums/app.enum';
 import { AuthenticationService } from './shared/services/auth.service';
 
 @Component({
@@ -7,30 +10,41 @@ import { AuthenticationService } from './shared/services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public isLoggedIn : boolean = false;
+  @Input() public isLoggedIn: boolean = false;
 
-  constructor(private readonly authService : AuthenticationService){
+  constructor(
+    private readonly authService: AuthenticationService,
+    private readonly router: Router
+  ) {
 
   }
 
   ngOnInit(): void {
-    const user = this.authService.getUserValue
-    if(user){
-      this.isLoggedIn = true
-    } else {
-      this.isLoggedIn = false
-    }
+    this.authService.userOservable.subscribe(
+      item => item != null
+        ? this.isLoggedIn = true
+        : this.isLoggedIn = false
+    )
   }
 
-  onLogout(){
-    console.log('Logout pressed')
+
+
+
+  onLogout() {
     // Call logout api
     // Remove user from local storage
+    this.authService.logout().subscribe(
+      item => {
+        this.isLoggedIn = false;
+        this.router.navigate([ROUTING_PATH.LOGIN])
+      }
+    )
+
   }
 
-  onLogin(){
-    console.log('Login pressed')
+  onLogin() {
     // Navigate To Login Route
+    this.router.navigate([ROUTING_PATH.LOGIN])
 
   }
 }
