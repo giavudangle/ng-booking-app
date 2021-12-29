@@ -16,3 +16,11 @@
     border-radius: 100%;
     margin:6px
   }
+
+
+  .app__hotel-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-flow: wrap;
+  }
