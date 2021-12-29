@@ -1,0 +1,10 @@
+.hotel__detail-image{
+    width: 300px;
+    height: 300px;
+}
+.hotel__detail-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
